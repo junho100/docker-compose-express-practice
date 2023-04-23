@@ -1,0 +1,34 @@
+version: "3.8"
+services:
+  server1:
+    container_name: node-container1
+    build:
+      context: ./express-1
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./express-1:/app
+      - /app/node_modules
+
+  server2:
+    container_name: node-container2
+    build:
+      context: ./express-2
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3000"
+    volumes:
+      - ./express-2:/app
+      - /app/node_modules
+
+  server3:
+    container_name: node-container3
+    build:
+      context: ./express-3
+      dockerfile: Dockerfile
+    ports:
+      - "3003:3000"
+    volumes:
+      - ./express-3:/app
+      - /app/node_modules
